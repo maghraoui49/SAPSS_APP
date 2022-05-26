@@ -3,14 +3,50 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BodyComponent } from './body/body.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ApplicationComponent } from './application/application.component';
+import { CreateApplicationComponent } from './create-application/create-application.component';
+import { EditeListeComponent } from './edite-liste/edite-liste.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { DataArchitectureComponent } from './data-architecture/data-architecture.component';
+import { AppDecomessioneComponent } from './app-decomessione/app-decomessione.component';
+import { ListerApplicationComponent } from './lister-application/lister-application.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BodyComponent,
+    SidenavComponent,
+    DashboardComponent,
+    ApplicationComponent,
+    CreateApplicationComponent,
+    EditeListeComponent,
+    DataArchitectureComponent,
+    AppDecomessioneComponent,
+    ListerApplicationComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
