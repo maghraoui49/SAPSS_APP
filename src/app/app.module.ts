@@ -22,6 +22,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import { FilterSidenavComponent } from './filter-sidenav/filter-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import {MatInputModule} from "@angular/material/input";
     DataArchitectureComponent,
     AppDecomessioneComponent,
     ListerApplicationComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FilterSidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,10 @@ import {MatInputModule} from "@angular/material/input";
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule,
+    MatListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
