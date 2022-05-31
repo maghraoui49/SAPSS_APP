@@ -1,9 +1,11 @@
 <mat-sidenav-container>
 
   <mat-sidenav  position="end" mode="side" #sidenav>
-    <h2>Filter : Data Table</h2>
+    <h2>Filter par critèr(s)</h2>
+    <h4>Appartenance :</h4>
     <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+      <mat-label>Choisis une option</mat-label>
       <mat-select >
         <mat-option value="option1">Option 1</mat-option>
         <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
@@ -11,8 +13,10 @@
       </mat-select>
     </mat-form-field>
     <br>
+    <h4>Gestionnaire patrimoine :</h4>
     <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+      <mat-label>Choisis une option</mat-label>
       <mat-select >
         <mat-option value="option1">Option 1</mat-option>
         <mat-option value="option2" disabled>Option 2 (disabled)</mat-option>
@@ -51,8 +55,8 @@
          <mat-icon >description</mat-icon>
       </button>
       filter
-      <button  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
-         <mat-icon (click)="sidenav.toggle()" >filter_list</mat-icon>
+      <button (click)="sidenav.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+         <mat-icon  >filter_list</mat-icon>
       </button>
 
     </div>
