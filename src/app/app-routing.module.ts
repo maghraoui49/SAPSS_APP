@@ -7,6 +7,10 @@ import {CreateApplicationComponent} from "./create-application/create-applicatio
 import {DataArchitectureComponent} from "./data-architecture/data-architecture.component";
 import {AppDecomessioneComponent} from "./app-decomessione/app-decomessione.component";
 import {ListerApplicationComponent} from "./lister-application/lister-application.component";
+import {SocleComponent} from "./data-architecture/socle/socle.component";
+import {ServiceComponent} from "./data-architecture/service/service.component";
+import {TopicFonctionnelComponent} from "./data-architecture/topic-fonctionnel/topic-fonctionnel.component";
+import {ObjetMetierComponent} from "./data-architecture/objet-metier/objet-metier.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -16,7 +20,11 @@ const routes: Routes = [
   {path: 'app-decomessione', component: AppDecomessioneComponent},
   {path: 'create-application', component: CreateApplicationComponent},
   {path: 'edit-liste', component: EditeListeComponent},
-  {path: 'lister-application', component: ListerApplicationComponent}
+  {path: 'lister-application', component: ListerApplicationComponent},
+  {path: 'socle', component: SocleComponent},
+  {path: 'service', component: ServiceComponent},
+  {path: 'topic-fonctionnel', component: TopicFonctionnelComponent},
+  {path: 'objet-metier', component: ObjetMetierComponent}
 ];
 
 @NgModule({

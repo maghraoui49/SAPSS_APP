@@ -15,26 +15,26 @@ export const navbarData = [
     label: 'Données Architecture',
     submenuLevel1: [
       {
-        routeLink: '',
+        routeLink: 'socle',
         icon: 'fal fa-cog',
         label: 'Scole',
       },
       {
-        routeLink: '',
+        routeLink: 'service',
         icon: 'fas fa-cog',
         label: 'Service',
 
       }
       ,
       {
-        routeLink: '',
+        routeLink: 'topic-fonctionnel',
         icon: 'fas fa-file-chart-line',
         label: 'Topic Fonctionnel',
 
       }
       ,
       {
-        routeLink: '',
+        routeLink: 'objet-metier',
         icon: 'fas fa-briefcase',
         label: 'Objet Metier',
 

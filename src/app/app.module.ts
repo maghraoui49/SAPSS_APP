@@ -25,6 +25,13 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import { FilterSidenavComponent } from './filter-sidenav/filter-sidenav.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SocleComponent } from './data-architecture/socle/socle.component';
+import { ServiceComponent } from './data-architecture/service/service.component';
+import { TopicFonctionnelComponent } from './data-architecture/topic-fonctionnel/topic-fonctionnel.component';
+import { ObjetMetierComponent } from './data-architecture/objet-metier/objet-metier.component';
+
 
 @NgModule({
   declarations: [
@@ -39,12 +46,18 @@ import { FilterSidenavComponent } from './filter-sidenav/filter-sidenav.componen
     AppDecomessioneComponent,
     ListerApplicationComponent,
     ToolbarComponent,
-    FilterSidenavComponent
+    FilterSidenavComponent,
+    SocleComponent,
+    ServiceComponent,
+    TopicFonctionnelComponent,
+    ObjetMetierComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
@@ -54,7 +67,10 @@ import { FilterSidenavComponent } from './filter-sidenav/filter-sidenav.componen
     MatButtonModule,
     MatInputModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+
 
   ],
   providers: [],

@@ -1,1 +1,197 @@
-<p>app-decomessione works!</p>
+<mat-sidenav-container>
+
+  <mat-sidenav  position="end" mode="side" #sidenav>
+    <h2>Filter par critèr(s)</h2>
+
+
+
+    <!--    <div *ngFor="let filter of filterSelectObj">-->
+    <!--      <mat-form-field >-->
+    <!--        <mat-label>Filter {{filter.name}}</mat-label>-->
+    <!--        <select matNativeControl name="{{filter.columnProp}}" [(ngModel)]="filter.modelValue"-->
+    <!--                (change)="filterChange(filter,$event)">-->
+    <!--          <option value="">-- Select {{filter.name}} --</option>-->
+    <!--          <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>-->
+    <!--        </select>-->
+    <!--      </mat-form-field>-->
+    <!--      &nbsp;-->
+
+    <!--    </div>-->
+
+    <!--    <button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>-->
+
+
+
+
+
+    <!--<div *ngFor="let filter of filterSelectObj">-->
+    <!--  <h4>{{filter.name}} :</h4>-->
+    <!--  <mat-form-field appearance="fill">-->
+    <!--    <mat-label>Choose an option</mat-label>-->
+    <!--    <mat-select (selectionChange)="onChange($event)">-->
+    <!--      <mat-option value="" >Tous</mat-option>-->
+    <!--      <mat-option *ngFor="let aper of filter.options" [value]="aper">{{aper}}</mat-option>-->
+    <!--    </mat-select>-->
+    <!--  </mat-form-field>-->
+
+    <!--  <br>-->
+    <!--</div>-->
+
+
+    <!--    <h4>Gestionnaire patrimoine :</h4>-->
+
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange2($event)">-->
+    <!--        <mat-option selected="" [value]="" >Tous</mat-option>-->
+    <!--        <mat-option *ngFor="let aper2 of etat" [value]="aper2">{{aper2}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+    <!--    <h4>Responsable exploitation :</h4>-->
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange($event)">-->
+    <!--        <mat-option *ngFor="let aper of exploitation" [value]="aper">{{aper}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+    <!--    <h4>Socle :</h4>-->
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange($event)">-->
+    <!--        <mat-option *ngFor="let aper of socle" [value]="aper">{{aper}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+    <!--    <h4>Etat :</h4>-->
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange($event)">-->
+    <!--        <mat-option *ngFor="let aper of etat" [value]="aper">{{aper}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+    <!--    <h4>Status Déco :</h4>-->
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange($event)">-->
+    <!--        <mat-option *ngFor="let aper of deco" [value]="aper">{{aper}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+    <!--    <h4>Structure responsable :</h4>-->
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange($event)">-->
+    <!--        <mat-option *ngFor="let aper of responsable" [value]="aper">{{aper}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <br>-->
+    <!--    <h4>Système applicatif :</h4>-->
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose an option</mat-label>-->
+    <!--      <mat-select (selectionChange)="onChange($event)">-->
+    <!--        <mat-option *ngFor="let aper of applicatif" [value]="aper">{{aper}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+
+
+    <h1>Applications Décommissionnée</h1>
+    <!--<mat-form-field appearance="fill" class="mx-3">-->
+    <!--  <input matInput placeholder="search" autocomplete="off" >-->
+    <!--</mat-form-field>-->
+
+    <div class="search-box">
+      <mat-form-field class="example-form-field" appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-label>Search</mat-label>
+        <input matInput type="text" (keyup)="searchData($event)" >
+        <button  matSuffix mat-icon-button aria-label="Clear"  >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <span class="example-spacer"></span>
+      reset
+      <button  mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+        <mat-icon  >filter_list</mat-icon>
+      </button>
+      export
+      <button  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">
+        <mat-icon >description</mat-icon>
+      </button>
+      filter
+      <button (click)="sidenav.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+        <mat-icon  >filter_list</mat-icon>
+      </button>
+
+    </div>
+
+
+
+    <h4>Nombre d'enregistrement : </h4>
+
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Identifiant </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="gestionPatrimoine">
+          <th mat-header-cell *matHeaderCellDef> Gestionnaire patrimoine </th>
+          <td mat-cell *matCellDef="let element"> {{element.gestionPatrimoine}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container  matColumnDef="socle">
+          <th mat-header-cell *matHeaderCellDef> Socle </th>
+          <td mat-cell *matCellDef="let element"> {{element.socle}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dateDeco">
+          <th mat-header-cell *matHeaderCellDef> Date de Fin </th>
+          <td mat-cell *matCellDef="let element"> {{element.dateDeco}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator  #paginator
+                      [pageSize]="8"
+                      [pageSizeOptions]="[8, 10, 20, 40]"
+                      showFirstLastButtons
+                      aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
