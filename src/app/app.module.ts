@@ -31,6 +31,9 @@ import { SocleComponent } from './data-architecture/socle/socle.component';
 import { ServiceComponent } from './data-architecture/service/service.component';
 import { TopicFonctionnelComponent } from './data-architecture/topic-fonctionnel/topic-fonctionnel.component';
 import { ObjetMetierComponent } from './data-architecture/objet-metier/objet-metier.component';
+import {MatTreeModule} from "@angular/material/tree";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatStepperModule} from "@angular/material/stepper";
 
 
 @NgModule({
@@ -70,6 +73,9 @@ import { ObjetMetierComponent } from './data-architecture/objet-metier/objet-met
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTreeModule,
+    MatProgressBarModule,
+    MatStepperModule,
 
 
   ],

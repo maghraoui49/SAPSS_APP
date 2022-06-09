@@ -7,7 +7,7 @@ import {ApplicationService} from "../Service/application.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {MatSelectChange} from "@angular/material/select";
 import * as _ from "lodash";
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormControl} from "@angular/forms";
 
 
 @Component({
@@ -40,6 +40,23 @@ export class ApplicationComponent implements OnInit {
   responsable : string[]=[] ;
   applicatif : string[]=[] ;
 
+  appartenanceFilter = new FormControl();
+  etatFilter = new FormControl();
+  gestionPatrimoineFilter =new FormControl();
+  exploitationFilter =new FormControl();
+  socleFilter =new FormControl();
+  decoFilter =new FormControl();
+  responsableFilter =new FormControl();
+  applicatifFilter =  new FormControl()
+
+  globalFilter = '';
+
+  filteredValues = {
+    appartenance: '', gestionPatrimoine: '', exploitation: '',
+    socle: '', etat: '', deco: '',
+    responsable: '', applicatif: ''
+  };
+
 
 
 
@@ -64,38 +81,111 @@ export class ApplicationComponent implements OnInit {
     //   this.dataSource.filter = filter;
     // });
 
-    this.filterSelectObj = [
-      {
-
-        name : 'appartenance',
-        columnProp: 'appartenance',
-        options: []
-      }, {
-
-        name: 'etat',
-        columnProp: 'etat',
-        options: []
-      }
-    ]
+    // this.filterSelectObj = [
+    //   {
+    //
+    //     name : 'appartenance',
+    //     columnProp: 'appartenance',
+    //     options: []
+    //   }, {
+    //
+    //     name: 'etat',
+    //     columnProp: 'etat',
+    //     options: []
+    //   }
+    // ]
   }
 
   ngOnInit(): void {
     this.getApplication();
+
+    this.appartenanceFilter.valueChanges.subscribe((appartenanceFilterValue) => {
+      this.filteredValues['appartenance'] = appartenanceFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.gestionPatrimoineFilter.valueChanges.subscribe((gestionPatrimoineFilterValue) => {
+      this.filteredValues['gestionPatrimoine'] = gestionPatrimoineFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.exploitationFilter.valueChanges.subscribe((exploitationFilterValue) => {
+      this.filteredValues['exploitation'] = exploitationFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.socleFilter.valueChanges.subscribe((socleFilterValue) => {
+      this.filteredValues['socle'] = socleFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.etatFilter.valueChanges.subscribe((etatFilterValue) => {
+      this.filteredValues['etat'] = etatFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.decoFilter.valueChanges.subscribe((decoFilterValue) => {
+      this.filteredValues['deco'] = decoFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.responsableFilter.valueChanges.subscribe((responsableFilterValue) => {
+      this.filteredValues['responsable'] = responsableFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.applicatifFilter.valueChanges.subscribe((applicatifFilterValue) => {
+      this.filteredValues['applicatif'] = applicatifFilterValue;
+      this.dataSource.filter = JSON.stringify(this.filteredValues);
+    });
+
+    this.dataSource.filterPredicate = this.customFilterPredicate();
+
+
   }
 
+  applyFilter(filter:any) {
+    this.globalFilter = filter;
+    this.dataSource.filter = JSON.stringify(this.filteredValues);
+  }
+
+
+  customFilterPredicate() {
+    const myFilterPredicate = (data: Application, filter: string): boolean => {
+      var globalMatch = !this.globalFilter;
+
+      if (this.globalFilter) {
+        // search all text fields
+        globalMatch = data.appartenance.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1;
+      }
+
+      if (!globalMatch) {
+        return false;
+      }
+
+      let searchString = JSON.parse(filter);
+      return data.etat.toString().indexOf(searchString.etat) !== -1 &&
+        data.appartenance.toString().toLowerCase().indexOf(searchString.appartenance.toLowerCase()) !== -1 &&
+        data.gestionPatrimoine.toString().toLowerCase().indexOf(searchString.gestionPatrimoine.toLowerCase()) !== -1 &&
+        data.socle.toString().toLowerCase().indexOf(searchString.socle.toLowerCase()) !== -1 &&
+        data.deco.toString().toLowerCase().indexOf(searchString.deco.toLowerCase()) !== -1 &&
+        data.responsable.toString().toLowerCase().indexOf(searchString.responsable.toLowerCase()) !== -1 &&
+        data.applicatif.toString().toLowerCase().indexOf(searchString.applicatif.toLowerCase()) !== -1 &&
+        data.exploitation.toString().toLowerCase().indexOf(searchString.exploitation.toLowerCase()) !== -1;
+    }
+    return myFilterPredicate;
+  }
 
 
   public getApplication() :void {
     this.applicationService.getApplications().subscribe(
       (response : Application[]) => {
         this.apiResponse = response;
+        console.log(this.dataSource.data.length)
         this.dataSource.data = response;
         this.applicationList = response;
-
         this.buildFiledFilter();
         this.dataSource.paginator = this.paginator;
-        this.filterSelectObj[0].options=this.appartenance;
-        this.filterSelectObj[1].options=this.etat;
       },
       (error : HttpErrorResponse) => {
         alert(error.message);
@@ -119,12 +209,18 @@ export class ApplicationComponent implements OnInit {
 
 
   resetFilters() {
-    this.filterValues = {}
-    this.filterSelectObj.forEach((value, key) => {
-      // @ts-ignore
-      value.modelValue = undefined;
-    })
-    this.dataSource.filter = "";
+    // this.appartenanceFilter.valueChanges = ;
+    // this.gestionPatrimoineFilter.value.reset();
+    // this.socleFilter.value.reset();
+    // this.responsableFilter.value.reset();
+    // this.applicatifFilter.value.reset();
+    // this.decoFilter.value.reset();
+    // this.etatFilter.value.reset();
+    // this.exploitationFilter.value.reset();
+
+
+    this.dataSource.filter = '';
+
   }
 
 
@@ -132,7 +228,6 @@ export class ApplicationComponent implements OnInit {
   buildFiledFilter(){
     this.appartenance = this.applicationList.map(t=>t.appartenance).filter((element,i) =>
       i === this.applicationList.map(t=>t.appartenance).indexOf(element) );
-
     this.gestionPatrimoine = this.applicationList.map(t=>t.gestionPatrimoine).filter((element,i) =>
       i === this.applicationList.map(t=>t.gestionPatrimoine).indexOf(element) );
     this.exploitation = this.applicationList.map(t=>t.exploitation).filter((element,i) =>
