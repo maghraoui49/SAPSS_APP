@@ -160,7 +160,7 @@ export class ApplicationComponent implements OnInit {
       }
 
       if (!globalMatch) {
-        return false;
+        return true;
       }
 
       let searchString = JSON.parse(filter);
@@ -208,20 +208,20 @@ export class ApplicationComponent implements OnInit {
 
 
 
-  resetFilters() {
-    // this.appartenanceFilter.valueChanges = ;
-    // this.gestionPatrimoineFilter.value.reset();
-    // this.socleFilter.value.reset();
-    // this.responsableFilter.value.reset();
-    // this.applicatifFilter.value.reset();
-    // this.decoFilter.value.reset();
-    // this.etatFilter.value.reset();
-    // this.exploitationFilter.value.reset();
-
-
-    this.dataSource.filter = '';
-
-  }
+  // resetFilters() {
+  //   // this.appartenanceFilter.valueChanges = ;
+  //   // this.gestionPatrimoineFilter.value.reset();
+  //   // this.socleFilter.value.reset();
+  //   // this.responsableFilter.value.reset();
+  //   // this.applicatifFilter.value.reset();
+  //   // this.decoFilter.value.reset();
+  //   // this.etatFilter.value.reset();
+  //   // this.exploitationFilter.value.reset();
+  //
+  //
+  //   this.dataSource.filter = '';
+  //
+  // }
 
 
 
@@ -250,9 +250,9 @@ export class ApplicationComponent implements OnInit {
   }
 
 
-  searchData($event: any) {
-    this.dataSource.filter = $event.target.value;
-  }
+  // searchData($event: any) {
+  //   this.dataSource.filter = $event.target.value;
+  // }
 
 
 

@@ -81,7 +81,7 @@
 
     <br>
 
-    <button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>
+    <button mat-flat-button color="warn" >Reset</button>
 
 
   </mat-sidenav>
@@ -99,8 +99,8 @@
       <mat-form-field class="example-form-field" appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
         <mat-label>Search</mat-label>
-        <input matInput type="text" (keyup)="searchData($event)" >
-        <button  matSuffix mat-icon-button aria-label="Clear"  >
+        <input matInput type="text" [ngModel]="globalFilter" (ngModelChange)="applyFilter($event)" >
+        <button  matSuffix mat-icon-button aria-label="Clear" >
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>

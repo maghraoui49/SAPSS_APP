@@ -34,6 +34,7 @@ import { ObjetMetierComponent } from './data-architecture/objet-metier/objet-met
 import {MatTreeModule} from "@angular/material/tree";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatStepperModule} from "@angular/material/stepper";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatTreeModule,
     MatProgressBarModule,
     MatStepperModule,
+    MatProgressSpinnerModule,
 
 
   ],

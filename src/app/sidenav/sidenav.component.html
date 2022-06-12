@@ -7,15 +7,21 @@
     </button>
   </div>
   <ul class="sidenav-nav">
-    <li class="sidenav-nav-item" *ngFor="let data of navData">
-      <a href="" class="sidenav-nav-link" [routerLink]="[data.routeLink]">
-        <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+    <li (click)="tooglesubMenu(data.label)" class="sidenav-nav-item1" *ngFor="let data of navData">
+      <a   class="sidenav-nav-link1" [routerLink]="[data.routeLink]">
+        <i class="sidenav-link-icon1" [class]="data.icon"></i>
+
+        <span class="sidenav-link-text1" *ngIf="collapsed">{{data.label}}</span>
       </a>
-      <ul *ngIf="collapsed && data.submenuLevel1 && data.submenuLevel1.length > 0"
-          [ngStyle]="{'margin-left': '80px'}">
-        <li *ngFor="let sub1 of data.submenuLevel1">
-          <a [routerLink]="[sub1.routeLink]">
+
+
+      <span *ngIf="collapsed" (click)="toogleSubMenu=!toogleSubMenu" [ngClass]="data.label=='Données Architecture'? 'fas fa-caret-down sidenav-submenu' : '' "></span>
+
+      <ul  *ngIf="collapsed && data.submenuLevel1 && data.submenuLevel1.length > 0"
+          [ngStyle]="{'margin-left': '10px'}">
+        <li [ngStyle]="{display: toogleSubMenu ? '' : 'none'} " class="sidenav-nav-item2" *ngFor="let sub1 of data.submenuLevel1">
+          <a class="sidenav-nav-link2" [routerLink]="[sub1.routeLink]">
+            <i class="sidenav-link-icon2" [class]="sub1.icon"></i>
             <span>{{sub1.label}}</span>
           </a>
         </li>

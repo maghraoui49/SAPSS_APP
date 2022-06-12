@@ -47,6 +47,10 @@ export class SidenavComponent implements OnInit {
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
+  toogleSubMenu : boolean =false;
+
+
+
 
 
 
@@ -77,7 +81,12 @@ export class SidenavComponent implements OnInit {
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
   }
 
+   button = Array.from(document.getElementsByClassName('archi_btn'));
 
 
+  tooglesubMenu(label: string) {
+    if (label == 'Données Architecture')
+      this.toogleSubMenu=!this.toogleSubMenu;
 
+  }
 }

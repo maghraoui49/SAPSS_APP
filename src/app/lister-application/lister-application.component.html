@@ -1,5 +1,15 @@
 <h1>Lister Applications</h1>
 
+<mat-form-field appearance="fill">
+  <mat-label>Choose an option</mat-label>
+  <mat-select [(value)]="selected" (selectionChange)="getData($event)" >
+    <mat-option  value="1">Domaine</mat-option>
+    <mat-option  value="2">Catégorie</mat-option>
+    <mat-option value="3">Structure responsable</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-spinner *ngIf="!dataSource.data.length"></mat-spinner>
 <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
   <!-- This is the tree node template for leaf nodes -->
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
@@ -18,3 +28,4 @@
     {{node.name}}
   </mat-tree-node>
 </mat-tree>
+
