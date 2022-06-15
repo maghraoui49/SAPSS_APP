@@ -40,6 +40,16 @@ export class ApplicationComponent implements OnInit {
   responsable : string[]=[] ;
   applicatif : string[]=[] ;
 
+
+  ngetat= ''
+  ngappartenance= ''
+  ngapplicatif= ''
+  ngsocle= ''
+  ngresponsable= ''
+  nggestionPatrimoine= ''
+  ngdeco= ''
+  ngexploitation= ''
+
   appartenanceFilter = new FormControl();
   etatFilter = new FormControl();
   gestionPatrimoineFilter =new FormControl();
@@ -50,6 +60,9 @@ export class ApplicationComponent implements OnInit {
   applicatifFilter =  new FormControl()
 
   globalFilter = '';
+
+
+
 
   filteredValues = {
     appartenance: '', gestionPatrimoine: '', exploitation: '',
@@ -156,11 +169,23 @@ export class ApplicationComponent implements OnInit {
 
       if (this.globalFilter) {
         // search all text fields
-        globalMatch = data.appartenance.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1;
+        globalMatch = data.nom.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.appartenance.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.gestionPatrimoine.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.socle.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.deco.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.responsable.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.applicatif.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.exploitation.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.etat.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ;
+
       }
 
       if (!globalMatch) {
-        return true;
+
+
+        // @ts-ignore
+        return;
       }
 
       let searchString = JSON.parse(filter);
@@ -181,7 +206,6 @@ export class ApplicationComponent implements OnInit {
     this.applicationService.getApplications().subscribe(
       (response : Application[]) => {
         this.apiResponse = response;
-        console.log(this.dataSource.data.length)
         this.dataSource.data = response;
         this.applicationList = response;
         this.buildFiledFilter();
@@ -194,34 +218,34 @@ export class ApplicationComponent implements OnInit {
   }
 
 
-  onChange($event: MatSelectChange) {
-    let filtereData = _.filter(this.apiResponse,(item) => {
-      return item.appartenance.toLowerCase() ==$event.value.toLowerCase();
-    })
-    this.dataSource = new MatTableDataSource(filtereData);
-    this.dataSource.paginator = this.paginator;
-
-  }
-
-
-
-
-
-
-  // resetFilters() {
-  //   // this.appartenanceFilter.valueChanges = ;
-  //   // this.gestionPatrimoineFilter.value.reset();
-  //   // this.socleFilter.value.reset();
-  //   // this.responsableFilter.value.reset();
-  //   // this.applicatifFilter.value.reset();
-  //   // this.decoFilter.value.reset();
-  //   // this.etatFilter.value.reset();
-  //   // this.exploitationFilter.value.reset();
-  //
-  //
-  //   this.dataSource.filter = '';
+  // onChange($event: MatSelectChange) {
+  //   let filtereData = _.filter(this.apiResponse,(item) => {
+  //     return item.appartenance.toLowerCase() ==$event.value.toLowerCase();
+  //   })
+  //   this.dataSource = new MatTableDataSource(filtereData);
+  //   this.dataSource.paginator = this.paginator;
   //
   // }
+
+
+
+
+
+
+  resetFilters() {
+    this.ngetat= ''
+    this.ngappartenance= ''
+    this.ngapplicatif= ''
+    this.ngsocle= ''
+    this.ngresponsable= ''
+    this.nggestionPatrimoine= ''
+    this.ngdeco= ''
+    this.ngexploitation= ''
+
+
+    this.dataSource.filter = '';
+
+  }
 
 
 
@@ -250,9 +274,9 @@ export class ApplicationComponent implements OnInit {
   }
 
 
-  // searchData($event: any) {
-  //   this.dataSource.filter = $event.target.value;
-  // }
+  searchData($event: any) {
+    this.dataSource.filter = $event.target.value;
+  }
 
 
 

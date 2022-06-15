@@ -1,0 +1,22 @@
+.content{
+    padding: 5px;
+}
+.mat-card{
+  margin: 0px;
+}
+.mat-card
+p
+{
+  font: 800 40px system-ui;
+}
+span{
+  font: 1.5em "Open Sans", sans-serif;
+}
+bar
+{
+  margin: 0px;
+  padding: 0px;
+  color: rgba(92, 187, 250, 0.637);
+}
+
+

@@ -1,1 +1,37 @@
-<h1>Dashboard</h1>
+<!--<mat-progress-bar-->
+<!--  mode="indeterminate"-->
+<!--  *ngIf="spinnerService.visibility | async"-->
+<!--&gt;</mat-progress-bar>-->
+<div class="content" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+  <div fxFlex="36" class="sec1" fxFlex.xs="55">
+    <mat-card class="child-1">
+      <app-line-chart [data]="lineChart"></app-line-chart>
+    </mat-card>
+  </div>
+  <div fxFlex="36" class="sec1" fxFlex.xs="55">
+    <mat-card class="child-1">
+      <p>{{ TOTALAPPLICATION }}</p>
+      <span>{{ titreTotalApplication }}</span>
+    </mat-card>
+    <mat-card class="child-1">
+      <p>{{ TOTALAPPLICATIONTMA }}</p>
+      <span>{{ titreApplicationTMA }}</span>
+    </mat-card>
+  </div>
+</div>
+
+<div class="content" fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+  <div fxFlex="36" class="sec1" fxFlex.xs="55">
+    <mat-card class="child-1">
+      <app-pie-chart [data]="etat"></app-pie-chart>
+    </mat-card>
+  </div>
+  <div fxFlex="36" class="sec2">
+    <mat-card class="child-2 bar">
+      <app-bar-chart
+        [dataAppart]="appartenance"
+        [dataGspatrimoine]="gspatrimoine"
+      ></app-bar-chart>
+    </mat-card>
+  </div>
+</div>

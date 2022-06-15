@@ -35,6 +35,14 @@ import {MatTreeModule} from "@angular/material/tree";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCardModule} from "@angular/material/card";
+import {LineChartComponent} from "./dashboard/line-chart/line-chart.component";
+import {PieChartComponent} from "./dashboard/pie-chart/pie-chart.component";
+import {BarChartComponent} from "./dashboard/bar-chart/bar-chart.component";
+import {ChartsModule} from "ng2-charts";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {DatePipe} from "@angular/common";
+
 
 
 @NgModule({
@@ -55,6 +63,9 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ServiceComponent,
     TopicFonctionnelComponent,
     ObjetMetierComponent,
+    LineChartComponent,
+    PieChartComponent,
+    BarChartComponent,
 
   ],
   imports: [
@@ -78,10 +89,17 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatProgressBarModule,
     MatStepperModule,
     MatProgressSpinnerModule,
+    MatCardModule,
+    ChartsModule,
+    FlexLayoutModule,
+
+
 
 
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
