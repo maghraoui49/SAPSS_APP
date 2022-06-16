@@ -1,15 +1,16 @@
 <mat-sidenav-container>
 
-  <mat-sidenav  position="end" mode="side" #sidenav>
+
+  <mat-sidenav class="filter mat" position="end" mode="side"  #sidenav>
     <h2>Filter par critèr(s)</h2>
 
 
 
 
-    <h4>Appartenance :</h4>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Choose an option</mat-label>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Appartenance</mat-label>
         <mat-select [(ngModel)]="ngappartenance" [formControl]="appartenanceFilter" >
           <mat-option *ngFor="let aper2 of appartenance" [value]="aper2">{{aper2}}</mat-option>
         </mat-select>
@@ -17,63 +18,63 @@
 
     <br>
 
-    <h4>Gestionnaire patrimoine :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Gestionnaire patrimoine</mat-label>
       <mat-select [(ngModel)]="nggestionPatrimoine" [formControl]="gestionPatrimoineFilter">
         <mat-option *ngFor="let aper2 of gestionPatrimoine" [value]="aper2">{{aper2}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br>
-    <h4>Responsable exploitation :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Responsable exploitation</mat-label>
       <mat-select [(ngModel)]="ngexploitation" [formControl]="responsableFilter">
         <mat-option *ngFor="let aper of exploitation" [value]="aper">{{aper}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br>
-    <h4>Socle :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Socle</mat-label>
       <mat-select [(ngModel)]="ngsocle" [formControl]="socleFilter">
         <mat-option *ngFor="let aper of socle" [value]="aper">{{aper}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br>
-    <h4>Etat :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Etat</mat-label>
       <mat-select [(ngModel)]="ngetat"  [formControl]="etatFilter" >
         <mat-option *ngFor="let aper of etat" [value]="aper">{{aper}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br>
-    <h4>Status Déco :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status Déco</mat-label>
       <mat-select [(ngModel)]="ngdeco" [formControl]="decoFilter">
         <mat-option *ngFor="let aper of deco" [value]="aper">{{aper}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br>
-    <h4>Structure responsable :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Structure responsable</mat-label>
       <mat-select [(ngModel)]="ngresponsable" [formControl]="responsableFilter">
         <mat-option *ngFor="let aper of responsable" [value]="aper">{{aper}}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br>
-    <h4>Système applicatif :</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Choose an option</mat-label>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Système applicatif</mat-label>
       <mat-select [(ngModel)]="ngapplicatif" [formControl]="applicatifFilter">
         <mat-option *ngFor="let aper of applicatif" [value]="aper">{{aper}}</mat-option>
       </mat-select>
@@ -81,10 +82,12 @@
 
     <br>
 
-    <button mat-flat-button color="warn" >Reset</button>
+    <button mat-flat-button color="warn" (click)="resetFilters()" >Reset</button>
 
 
   </mat-sidenav>
+
+
 
   <mat-sidenav-content>
 

@@ -39,9 +39,11 @@ import {MatCardModule} from "@angular/material/card";
 import {LineChartComponent} from "./dashboard/line-chart/line-chart.component";
 import {PieChartComponent} from "./dashboard/pie-chart/pie-chart.component";
 import {BarChartComponent} from "./dashboard/bar-chart/bar-chart.component";
-import {ChartsModule} from "ng2-charts";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {DatePipe} from "@angular/common";
+import {ChartsModule} from "ng2-charts";
+import { LoginComponent } from './login/login.component';
+
 
 
 
@@ -66,6 +68,7 @@ import {DatePipe} from "@angular/common";
     LineChartComponent,
     PieChartComponent,
     BarChartComponent,
+    LoginComponent,
 
   ],
   imports: [

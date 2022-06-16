@@ -11,9 +11,11 @@ import {SocleComponent} from "./data-architecture/socle/socle.component";
 import {ServiceComponent} from "./data-architecture/service/service.component";
 import {TopicFonctionnelComponent} from "./data-architecture/topic-fonctionnel/topic-fonctionnel.component";
 import {ObjetMetierComponent} from "./data-architecture/objet-metier/objet-metier.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'application', component: ApplicationComponent},
   {path: 'data-architecture', component: DataArchitectureComponent},
