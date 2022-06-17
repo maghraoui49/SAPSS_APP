@@ -8,6 +8,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {MatSelectChange} from "@angular/material/select";
 import * as _ from "lodash";
 import {FormBuilder, FormControl} from "@angular/forms";
+import {TableUtil} from "./tableUtil";
 
 
 @Component({
@@ -217,6 +218,10 @@ export class ApplicationComponent implements OnInit {
     )
   }
 
+  exportTable() {
+    TableUtil.exportTableToExcel("ExampleMaterialTable");
+  }
+
 
   // onChange($event: MatSelectChange) {
   //   let filtereData = _.filter(this.apiResponse,(item) => {
@@ -226,6 +231,7 @@ export class ApplicationComponent implements OnInit {
   //   this.dataSource.paginator = this.paginator;
   //
   // }
+  filterbtn: boolean= true;
 
 
 
@@ -279,7 +285,33 @@ export class ApplicationComponent implements OnInit {
   }
 
 
+  getColor(etat: any): any {
+    switch(etat) {
+      case 'En production': {
+        return 'rgba(144,236,146,0.76)'
+        break;
+      }
+      case 'Décommissionné': {
+        return 'rgb(215,201,127)'
+        break;
+      }
+      case 'En préparation': {
+        return 'rgba(145,200,255,0.82)'
+        break;
+      }
+      case 'Arrêtée': {
+        return 'rgba(217,145,145,0.76)'
+        break;
+      }
+      default: {
+        return false
+        break;
+      }
+    }
 
+
+    return "red";
+  }
 }
 
 

@@ -1,13 +1,10 @@
-<mat-sidenav-container>
+<mat-sidenav-container >
 
 
-  <mat-sidenav class="filter mat" position="end" mode="side"  #sidenav>
+  <mat-sidenav   position="end" mode="side"  #sidenav>
+
+  <div class="filter">
     <h2>Filter par critèr(s)</h2>
-
-
-
-
-
 
       <mat-form-field appearance="outline">
         <mat-label>Appartenance</mat-label>
@@ -84,7 +81,7 @@
 
     <button mat-flat-button color="warn" (click)="resetFilters()" >Reset</button>
 
-
+  </div>
   </mat-sidenav>
 
 
@@ -98,7 +95,7 @@
     <!--  <input matInput placeholder="search" autocomplete="off" >-->
     <!--</mat-form-field>-->
 
-    <div class="search-box">
+    <div  class="search-box search">
       <mat-form-field class="example-form-field" appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
         <mat-label>Search</mat-label>
@@ -107,65 +104,72 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
+
+      <h4 id="h4">Nombre d'enregistrement : {{dataSource.data.length}}</h4>
+
+
 <!--      <mat-form-field>-->
 <!--        <input matInput [ngModel]="globalFilter" (ngModelChange)="applyFilter($event)" placeholder="Filter">-->
 <!--      </mat-form-field>-->
-      <span class="example-spacer"></span>
-      reset
-      <button (click)="resetFilters()"  mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+
+<!--      reset-->
+<!--      <button (click)="resetFilters()"  mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">-->
+<!--         <mat-icon  >filter_list</mat-icon>-->
+<!--      </button>-->
+<!--      export-->
+<!--      <button (click)="exportTable()"  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">-->
+<!--         <mat-icon >description</mat-icon>-->
+<!--      </button>-->
+<!--      filter-->
+      <button *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
          <mat-icon  >filter_list</mat-icon>
       </button>
-      export
-      <button  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">
-         <mat-icon >description</mat-icon>
-      </button>
-      filter
-      <button (click)="sidenav.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
-         <mat-icon  >filter_list</mat-icon>
+      <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+        <mat-icon  >close</mat-icon>
       </button>
 
     </div>
 
 
 
-    <h4>Nombre d'enregistrement : {{dataSource.data.length}}</h4>
 
 
-    <div class="mat-elevation-z8">
+
+    <div class="mat-elevation-z8 mat table-mat" >
       <mat-progress-bar *ngIf="dataSource.data.length == 0" mode="indeterminate"></mat-progress-bar>
-      <table mat-table [dataSource]="dataSource">
+      <table  id="ExampleMaterialTable" mat-table [dataSource]="dataSource">
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> Identifiant </th>
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          <td mat-cell *matCellDef="let element" [innerHTML]="element.id  | bold: dataSource.filter.toString()" ></td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="nom">
           <th mat-header-cell *matHeaderCellDef> Nom </th>
-          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+          <td mat-cell *matCellDef="let element" [innerHTML]="element.nom  | bold: dataSource.filter.toString()" ></td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="gestionPatrimoine">
           <th mat-header-cell *matHeaderCellDef> Gestionnaire patrimoine </th>
-          <td mat-cell *matCellDef="let element"> {{element.gestionPatrimoine}} </td>
+          <td mat-cell *matCellDef="let element" [innerHTML]="element.gestionPatrimoine  | bold: dataSource.filter.toString()" ></td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container  matColumnDef="socle">
           <th mat-header-cell *matHeaderCellDef> Socle </th>
-          <td mat-cell *matCellDef="let element"> {{element.socle}} </td>
+          <td mat-cell *matCellDef="let element" [innerHTML]="element.socle  | bold: dataSource.filter.toString()" > </td>
         </ng-container>
 
         <ng-container matColumnDef="etat">
           <th mat-header-cell *matHeaderCellDef> Etat </th>
-          <td mat-cell *matCellDef="let element"> {{element.etat}} </td>
+          <td  mat-cell *matCellDef="let element"> <span [style.background]="getColor(element.etat)" class="res-circle" >{{element.etat}}</span> </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr  class="table-header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr style="font-weight: bold" mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
       </table>
 
       <mat-paginator  #paginator

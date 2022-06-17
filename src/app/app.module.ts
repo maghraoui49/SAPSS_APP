@@ -43,6 +43,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {DatePipe} from "@angular/common";
 import {ChartsModule} from "ng2-charts";
 import { LoginComponent } from './login/login.component';
+import {MakeBold} from "./application/bold.pipe";
 
 
 
@@ -69,6 +70,7 @@ import { LoginComponent } from './login/login.component';
     PieChartComponent,
     BarChartComponent,
     LoginComponent,
+    MakeBold
 
   ],
   imports: [

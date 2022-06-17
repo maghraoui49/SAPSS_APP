@@ -1,11 +1,51 @@
-table {
-  width: 100%;
+
+
+.table-mat{
+  margin-right: 20px;
 }
 
-.filter {
-  margin-left: 45px;
+table {
+  width: 100%;
+  /*border-collapse: collapse;*/
 
-  width: 300px;
+}
+.mat-table
+{
+  border-radius: 1rem;
+  overflow:hidden !important;
+  /*background-color:transparent!important;*/
+}
+/*table tr:last-child td !*To remove the last border*!*/
+/*{*/
+/*  border-bottom:0 solid*/
+/*}*/
+
+.filter {
+  width: 240px;
+  /*margin-left: 20px;*/
+  text-align: center;
+}
+
+th{
+  font-weight: bold;
+  font-size: medium;
+}
+
+.res-circle {
+  /* (A) PERCENTAGE WIDTH & BORDER RADIUS */
+  width: 20%;
+  border-radius: 45%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /* (B) BACKGROUND COLOR */
+  /*background: lightcoral;*/
+
+  /* (C) NECESSARY TO POSITION TEXT BLOCK */
+  /*line-height: 0;*/
+  /*position: relative;*/
 }
 
 
@@ -13,3 +53,27 @@ table {
   flex: 1 1 auto;
 }
 
+.table-header{
+  background-color: #84bbfd;
+
+}
+
+#h4{
+  margin-left: -18em;
+  font-weight: bold;
+}
+
+mat-sidenav-container {
+
+  height: 100%;
+  min-height: 100%;
+
+}
+
+.search{
+  margin-right: 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
