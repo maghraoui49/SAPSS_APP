@@ -13,22 +13,18 @@ table {
 {
   border-radius: 1rem;
   overflow:hidden !important;
-  /*background-color:transparent!important;*/
 }
-/*table tr:last-child td !*To remove the last border*!*/
-/*{*/
-/*  border-bottom:0 solid*/
-/*}*/
+
 
 .filter {
   width: 240px;
-  /*margin-left: 20px;*/
   text-align: center;
 }
 
 th{
   font-weight: bold;
   font-size: medium;
+  color: #fdfdfe;
 }
 
 .res-circle {
@@ -49,17 +45,17 @@ th{
 }
 
 
-.example-spacer {
-  flex: 1 1 auto;
-}
 
 .table-header{
-  background-color: #84bbfd;
+  background-color: rgb(137, 152, 180);
+  border-bottom: 3px solid #fde931;
+
+
 
 }
 
 #h4{
-  margin-left: -18em;
+  margin-left: -12em;
   font-weight: bold;
 }
 
@@ -76,4 +72,17 @@ mat-sidenav-container {
   justify-content: space-between;
   align-items: center;
 
+}
+
+.sidnav{
+  background: #eee;
+  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #3b5473;
+}
+/* Font color */
+input.mat-input-element {
+  color: white;
 }

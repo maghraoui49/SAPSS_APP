@@ -1,108 +1,87 @@
 <mat-sidenav-container>
 
-  <mat-sidenav  position="end" mode="side" #sidenav>
-    <h2>Filter par critèr(s)</h2>
+  <mat-sidenav   position="end" mode="side"  #sidenav>
+
+    <div class="filter">
+      <h2>Filter par critèr(s)</h2>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Domaine</mat-label>
+        <mat-select [(ngModel)]="ngdomaine" [formControl]="domaineFilter" >
+          <mat-option *ngFor="let aper2 of domaine" [value]="aper2">{{aper2}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Gestionnaire patrimoine</mat-label>
+        <mat-select [(ngModel)]="nggestionPatrimoine" [formControl]="gestionPatrimoineFilter">
+          <mat-option *ngFor="let aper2 of gestionPatrimoine" [value]="aper2">{{aper2}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Catégorie</mat-label>
+        <mat-select [(ngModel)]="ngcategorie" [formControl]="categorieFilter">
+          <mat-option *ngFor="let aper of categorie" [value]="aper">{{aper}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Socle</mat-label>
+        <mat-select [(ngModel)]="ngsocle" [formControl]="socleFilter">
+          <mat-option *ngFor="let aper of socle" [value]="aper">{{aper}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Responsable</mat-label>
+        <mat-select [(ngModel)]="ngresponsable"  [formControl]="responsableFilter" >
+          <mat-option *ngFor="let aper of responsable" [value]="aper">{{aper}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+      </mat-form-field>
 
 
 
-    <!--    <div *ngFor="let filter of filterSelectObj">-->
-    <!--      <mat-form-field >-->
-    <!--        <mat-label>Filter {{filter.name}}</mat-label>-->
-    <!--        <select matNativeControl name="{{filter.columnProp}}" [(ngModel)]="filter.modelValue"-->
-    <!--                (change)="filterChange(filter,$event)">-->
-    <!--          <option value="">-- Select {{filter.name}} --</option>-->
-    <!--          <option [value]="item" *ngFor="let item of filter.options">{{item}}</option>-->
-    <!--        </select>-->
-    <!--      </mat-form-field>-->
-    <!--      &nbsp;-->
 
-    <!--    </div>-->
+<!--      <mat-form-field appearance="outline">-->
+<!--        <mat-label>Structure responsable</mat-label>-->
+<!--        <mat-select [(ngModel)]="ngresponsable" [formControl]="responsableFilter">-->
+<!--          <mat-option *ngFor="let aper of responsable" [value]="aper">{{aper}}</mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
 
-    <!--    <button mat-flat-button color="warn" (click)="resetFilters()">Reset</button>-->
+<!--      <br>-->
 
 
 
+      <button mat-flat-button color="warn" (click)="resetFilters()" >Reset</button>
 
-
-    <!--<div *ngFor="let filter of filterSelectObj">-->
-    <!--  <h4>{{filter.name}} :</h4>-->
-    <!--  <mat-form-field appearance="fill">-->
-    <!--    <mat-label>Choose an option</mat-label>-->
-    <!--    <mat-select (selectionChange)="onChange($event)">-->
-    <!--      <mat-option value="" >Tous</mat-option>-->
-    <!--      <mat-option *ngFor="let aper of filter.options" [value]="aper">{{aper}}</mat-option>-->
-    <!--    </mat-select>-->
-    <!--  </mat-form-field>-->
-
-    <!--  <br>-->
-    <!--</div>-->
-
-
-    <!--    <h4>Gestionnaire patrimoine :</h4>-->
-
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange2($event)">-->
-    <!--        <mat-option selected="" [value]="" >Tous</mat-option>-->
-    <!--        <mat-option *ngFor="let aper2 of etat" [value]="aper2">{{aper2}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-    <!--    <h4>Responsable exploitation :</h4>-->
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange($event)">-->
-    <!--        <mat-option *ngFor="let aper of exploitation" [value]="aper">{{aper}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-    <!--    <h4>Socle :</h4>-->
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange($event)">-->
-    <!--        <mat-option *ngFor="let aper of socle" [value]="aper">{{aper}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-    <!--    <h4>Etat :</h4>-->
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange($event)">-->
-    <!--        <mat-option *ngFor="let aper of etat" [value]="aper">{{aper}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-    <!--    <h4>Status Déco :</h4>-->
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange($event)">-->
-    <!--        <mat-option *ngFor="let aper of deco" [value]="aper">{{aper}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-    <!--    <h4>Structure responsable :</h4>-->
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange($event)">-->
-    <!--        <mat-option *ngFor="let aper of responsable" [value]="aper">{{aper}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-    <!--    <br>-->
-    <!--    <h4>Système applicatif :</h4>-->
-    <!--    <mat-form-field appearance="fill">-->
-    <!--      <mat-label>Choose an option</mat-label>-->
-    <!--      <mat-select (selectionChange)="onChange($event)">-->
-    <!--        <mat-option *ngFor="let aper of applicatif" [value]="aper">{{aper}}</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-
-
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -114,37 +93,37 @@
     <!--  <input matInput placeholder="search" autocomplete="off" >-->
     <!--</mat-form-field>-->
 
-    <div class="search-box">
+    <div class="search-box search">
       <mat-form-field class="example-form-field" appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
         <mat-label>Search</mat-label>
-        <input matInput type="text" (keyup)="searchData($event)" >
+        <input matInput type="text" [ngModel]="globalFilter" (ngModelChange)="applyFilter($event)" >
         <button  matSuffix mat-icon-button aria-label="Clear"  >
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
-      <span class="example-spacer"></span>
-      reset
-      <button  mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+      <h4 id="h4" >Nombre d'enregistrement : {{dataSource.data.length}}</h4>
+
+<!--      <button  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">-->
+<!--        <mat-icon >description</mat-icon>-->
+<!--      </button>-->
+
+      <button *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
         <mat-icon  >filter_list</mat-icon>
       </button>
-      export
-      <button  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">
-        <mat-icon >description</mat-icon>
-      </button>
-      filter
-      <button (click)="sidenav.toggle()" mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
-        <mat-icon  >filter_list</mat-icon>
+      <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+        <mat-icon  >close</mat-icon>
       </button>
 
     </div>
 
 
 
-    <h4>Nombre d'enregistrement : </h4>
 
 
-    <div class="mat-elevation-z8">
+
+
+    <div class="mat-elevation-z8 table-mat">
       <table mat-table [dataSource]="dataSource">
 
         <!-- Position Column -->
@@ -171,13 +150,13 @@
           <td mat-cell *matCellDef="let element"> {{element.socle}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="dateDeco">
+        <ng-container matColumnDef="dateDecommission">
           <th mat-header-cell *matHeaderCellDef> Date de Fin </th>
-          <td mat-cell *matCellDef="let element"> {{element.dateDeco}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.dateDecommission |  date: 'dd/MM/yyyy'}} </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="table-header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="header" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
       <mat-paginator  #paginator

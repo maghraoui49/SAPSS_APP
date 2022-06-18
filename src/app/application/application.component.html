@@ -1,7 +1,7 @@
 <mat-sidenav-container >
 
 
-  <mat-sidenav   position="end" mode="side"  #sidenav>
+  <mat-sidenav  class="sidnav" position="end" mode="side"  #sidenav>
 
   <div class="filter">
     <h2>Filter par critèr(s)</h2>
@@ -52,7 +52,7 @@
 
     <br>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field  appearance="outline">
       <mat-label>Status Déco</mat-label>
       <mat-select [(ngModel)]="ngdeco" [formControl]="decoFilter">
         <mat-option *ngFor="let aper of deco" [value]="aper">{{aper}}</mat-option>
@@ -121,10 +121,10 @@
 <!--         <mat-icon >description</mat-icon>-->
 <!--      </button>-->
 <!--      filter-->
-      <button *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+      <button title="ouvrir le filter" *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
          <mat-icon  >filter_list</mat-icon>
       </button>
-      <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+      <button title="quitter le filter" *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
         <mat-icon  >close</mat-icon>
       </button>
 
@@ -169,7 +169,7 @@
         </ng-container>
 
         <tr  class="table-header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr style="font-weight: bold" mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+        <tr class="header" mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
       </table>
 
       <mat-paginator  #paginator

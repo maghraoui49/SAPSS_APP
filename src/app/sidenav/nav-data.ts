@@ -10,7 +10,7 @@ export const navbarData = [
     label: 'Application'
   },
   {
-    routeLink: 'data-architecture',
+    routeLink: 'app',
     icon: 'fas fa-sitemap',
     label: 'Données Architecture',
     submenuLevel1: [
@@ -44,7 +44,7 @@ export const navbarData = [
   {
     routeLink: 'app-decomessione',
     icon: 'fal fa-tags',
-    label: 'Application Decomissionee'
+    label: 'Application Décommissionnée'
   },
   {
     routeLink: 'create-application',

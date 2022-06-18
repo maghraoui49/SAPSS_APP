@@ -8,7 +8,7 @@
   </div>
   <ul class="sidenav-nav">
     <li  class="sidenav-nav-item1" *ngFor="let data of navData">
-      <a  (click)="tooglesubMenu(data.label)"  class="sidenav-nav-link1" [routerLink]="[data.routeLink]">
+      <a  (click)="tooglesubMenu(data.label)"  class="sidenav-nav-link1"  [routerLink]="[data.routeLink]">
         <i class="sidenav-link-icon1" [class]="data.icon"></i>
 
         <span class="sidenav-link-text1" *ngIf="collapsed">{{data.label}}</span>

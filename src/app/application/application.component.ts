@@ -74,41 +74,7 @@ export class ApplicationComponent implements OnInit {
 
 
 
-  constructor(public applicationService : ApplicationService , formBuilder: FormBuilder ) {
-
-
-
-    // this.dataSource.filterPredicate = ((data, filter: any) => {
-    //   const a = !filter.appartenance || data.appartenance === filter.appartenance;
-    //   const b = !filter.etat || data.etat.toLowerCase().includes(filter.etat);
-    //
-    //   return a && b ;
-    // }) as (arg0: Application, arg1: string) => boolean;
-    //
-    // this.formControl = formBuilder.group({
-    //   appartenance: '',
-    //   etat: '',
-    //
-    // })
-    // this.formControl.valueChanges.subscribe(value => {
-    //   const filter = {...value, name: value.name.trim().toLowerCase()} as string;
-    //   this.dataSource.filter = filter;
-    // });
-
-    // this.filterSelectObj = [
-    //   {
-    //
-    //     name : 'appartenance',
-    //     columnProp: 'appartenance',
-    //     options: []
-    //   }, {
-    //
-    //     name: 'etat',
-    //     columnProp: 'etat',
-    //     options: []
-    //   }
-    // ]
-  }
+  constructor(public applicationService : ApplicationService ) {}
 
   ngOnInit(): void {
     this.getApplication();
@@ -172,6 +138,7 @@ export class ApplicationComponent implements OnInit {
         // search all text fields
         globalMatch = data.nom.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
           data.appartenance.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
+          data.id.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
           data.gestionPatrimoine.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
           data.socle.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
           data.deco.toString().toLowerCase().indexOf(this.globalFilter.toLowerCase()) !== -1 ||
@@ -231,7 +198,7 @@ export class ApplicationComponent implements OnInit {
   //   this.dataSource.paginator = this.paginator;
   //
   // }
-  filterbtn: boolean= true;
+
 
 
 
@@ -280,27 +247,24 @@ export class ApplicationComponent implements OnInit {
   }
 
 
-  searchData($event: any) {
-    this.dataSource.filter = $event.target.value;
-  }
 
 
   getColor(etat: any): any {
     switch(etat) {
       case 'En production': {
-        return 'rgba(144,236,146,0.76)'
+        return 'rgba(214,255,215,0.76)'
         break;
       }
       case 'Décommissionné': {
-        return 'rgb(215,201,127)'
+        return 'rgb(255,241,183)'
         break;
       }
       case 'En préparation': {
-        return 'rgba(145,200,255,0.82)'
+        return 'rgba(188,219,255,0.82)'
         break;
       }
       case 'Arrêtée': {
-        return 'rgba(217,145,145,0.76)'
+        return 'rgba(255,195,195,0.76)'
         break;
       }
       default: {
@@ -309,8 +273,6 @@ export class ApplicationComponent implements OnInit {
       }
     }
 
-
-    return "red";
   }
 }
 

@@ -44,6 +44,8 @@ import {DatePipe} from "@angular/common";
 import {ChartsModule} from "ng2-charts";
 import { LoginComponent } from './login/login.component';
 import {MakeBold} from "./application/bold.pipe";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 
 
@@ -73,35 +75,36 @@ import {MakeBold} from "./application/bold.pipe";
     MakeBold
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSidenavModule,
-    MatListModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatTreeModule,
-    MatProgressBarModule,
-    MatStepperModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    ChartsModule,
-    FlexLayoutModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule,
+        MatSidenavModule,
+        MatListModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatTreeModule,
+        MatProgressBarModule,
+        MatStepperModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        ChartsModule,
+        FlexLayoutModule,
+      MatDatepickerModule,
+      MatNativeDateModule
 
 
 
-
-  ],
+    ],
   providers: [
     DatePipe,
   ],

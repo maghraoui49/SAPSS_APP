@@ -1,7 +1,9 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-
+.color{
+  color: #3f51b5;
+}
 
 .toolbar {
   position: sticky;
@@ -9,7 +11,7 @@
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 
-  background: #263238;
+  background: rgba(26, 48, 75, 0.85);
 }
 /*.icon{*/
 /*  background: #fff;*/
