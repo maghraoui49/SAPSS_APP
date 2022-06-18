@@ -17,7 +17,7 @@ export const navbarData = [
       {
         routeLink: 'socle',
         icon: 'fal fa-cog',
-        label: 'Scole',
+        label: 'Socle',
       },
       {
         routeLink: 'service',

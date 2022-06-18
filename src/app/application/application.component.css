@@ -24,30 +24,23 @@ table {
 th{
   font-weight: bold;
   font-size: medium;
-  color: #fdfdfe;
+  color: #000000;
 }
 
-.res-circle {
-  /* (A) PERCENTAGE WIDTH & BORDER RADIUS */
-  width: 20%;
-  border-radius: 45%;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-
-  /* (B) BACKGROUND COLOR */
-  /*background: lightcoral;*/
-
-  /* (C) NECESSARY TO POSITION TEXT BLOCK */
-  /*line-height: 0;*/
-  /*position: relative;*/
+.mat-mini-fab.mat-green {
+  background-color: #217346;
 }
+
+.mat-mini-fab {
+  color: white;
+}
+
+
 
 
 
 .table-header{
-  background-color: rgb(137, 152, 180);
+  background: #e1e2e9;
   border-bottom: 3px solid #fde931;
 
 
@@ -75,7 +68,8 @@ mat-sidenav-container {
 }
 
 .sidnav{
-  background: #eee;
+  /*background: #eee;*/
+  background: #e1e2e9;
   box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
 }
 
@@ -83,6 +77,24 @@ mat-sidenav-container {
   color: #3b5473;
 }
 /* Font color */
+/* Font color */
 input.mat-input-element {
   color: white;
+}
+
+.res-circle {
+  /* (A) PERCENTAGE WIDTH & BORDER RADIUS */
+  width: 20%;
+  border-radius: 45%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /* (B) BACKGROUND COLOR */
+  /*background: lightcoral;*/
+
+  /* (C) NECESSARY TO POSITION TEXT BLOCK */
+  /*line-height: 0;*/
+  /*position: relative;*/
 }

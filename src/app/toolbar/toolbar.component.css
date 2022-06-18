@@ -11,7 +11,7 @@
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 
-  background: rgba(26, 48, 75, 0.85);
+  background: rgb(23, 29, 54);
 }
 /*.icon{*/
 /*  background: #fff;*/
@@ -25,4 +25,12 @@
 
   margin-right: 20px;
 
+}
+
+.mat-mini-fab.mat-green {
+  background-color: #e0e1e8;
+}
+
+.mat-mini-fab {
+  color: white;
 }

@@ -1,6 +1,6 @@
 <mat-sidenav-container>
 
-  <mat-sidenav   position="end" mode="side"  #sidenav>
+  <mat-sidenav class="sidnav"  position="end" mode="side"  #sidenav>
 
     <div class="filter">
       <h2>Filter par critèr(s)</h2>
@@ -104,9 +104,10 @@
       </mat-form-field>
       <h4 id="h4" >Nombre d'enregistrement : {{dataSource.data.length}}</h4>
 
-<!--      <button  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">-->
-<!--        <mat-icon >description</mat-icon>-->
-<!--      </button>-->
+      <div>
+        <button style="margin-right: 15px;" (click)="exportTable()"  mat-mini-fab color="green" aria-label="Example icon button with a filter list icon">
+          <mat-icon color="white" >description</mat-icon>
+        </button>
 
       <button *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
         <mat-icon  >filter_list</mat-icon>
@@ -114,6 +115,7 @@
       <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
         <mat-icon  >close</mat-icon>
       </button>
+      </div>
 
     </div>
 
@@ -124,7 +126,7 @@
 
 
     <div class="mat-elevation-z8 table-mat">
-      <table mat-table [dataSource]="dataSource">
+      <table id="ExampleMaterialTable" mat-table [dataSource]="dataSource">
 
         <!-- Position Column -->
         <ng-container matColumnDef="id">

@@ -117,9 +117,10 @@
 <!--         <mat-icon  >filter_list</mat-icon>-->
 <!--      </button>-->
 <!--      export-->
-<!--      <button (click)="exportTable()"  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">-->
-<!--         <mat-icon >description</mat-icon>-->
-<!--      </button>-->
+     <div>
+      <button style="margin-right: 15px;" (click)="exportTable()"  mat-mini-fab color="green" aria-label="Example icon button with a filter list icon">
+         <mat-icon color="white" >description</mat-icon>
+      </button>
 <!--      filter-->
       <button title="ouvrir le filter" *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
          <mat-icon  >filter_list</mat-icon>
@@ -127,6 +128,7 @@
       <button title="quitter le filter" *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
         <mat-icon  >close</mat-icon>
       </button>
+     </div>
 
     </div>
 

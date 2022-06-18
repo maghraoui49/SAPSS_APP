@@ -1,17 +1,18 @@
+
+
 .table-mat{
   margin-right: 20px;
 }
 
-
 table {
   width: 100%;
-}
+  /*border-collapse: collapse;*/
 
+}
 .mat-table
 {
   border-radius: 1rem;
   overflow:hidden !important;
-
 }
 
 
@@ -23,21 +24,25 @@ table {
 th{
   font-weight: bold;
   font-size: medium;
-  color: #003d8e;
+  color: #000000;
 }
+
+
+
 
 
 .table-header{
-  background-color: rgb(253, 233, 49);
+  background: #e1e2e9;
+  border-bottom: 3px solid #fde931;
+
+
 
 }
-
 
 #h4{
   margin-left: -12em;
   font-weight: bold;
 }
-
 
 mat-sidenav-container {
 
@@ -54,4 +59,25 @@ mat-sidenav-container {
 
 }
 
+.sidnav{
+  /*background: #eee;*/
+  background: #e1e2e9;
+  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+}
 
+.mat-mini-fab.mat-green {
+  background-color: #217346;
+}
+
+.mat-mini-fab {
+  color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #3b5473;
+}
+/* Font color */
+/* Font color */
+input.mat-input-element {
+  color: white;
+}
