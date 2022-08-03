@@ -274,6 +274,11 @@ export class ApplicationComponent implements OnInit {
     }
 
   }
+
+  handleClear() {
+    this.globalFilter="";
+
+  }
 }
 
 

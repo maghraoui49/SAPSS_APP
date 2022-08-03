@@ -79,7 +79,7 @@
 
     <br>
 
-    <button mat-flat-button color="warn" (click)="resetFilters()" >Reset</button>
+    <button mat-flat-button color="red" (click)="resetFilters()" >Réinitialiser</button>
 
   </div>
   </mat-sidenav>
@@ -98,9 +98,9 @@
     <div  class="search-box search">
       <mat-form-field class="example-form-field" appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
-        <mat-label>Search</mat-label>
+        <mat-label>Rechercher</mat-label>
         <input matInput type="text" [ngModel]="globalFilter" (ngModelChange)="applyFilter($event)" >
-        <button  matSuffix mat-icon-button aria-label="Clear" >
+        <button (click)="handleClear()" matSuffix mat-icon-button aria-label="Clear" >
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
@@ -125,7 +125,7 @@
       <button title="ouvrir le filter" *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
          <mat-icon  >filter_list</mat-icon>
       </button>
-      <button title="quitter le filter" *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+      <button title="quitter le filter" *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="red" aria-label="Example icon button with a filter list icon">
         <mat-icon  >close</mat-icon>
       </button>
      </div>

@@ -79,7 +79,7 @@
 
 
 
-      <button mat-flat-button color="warn" (click)="resetFilters()" >Reset</button>
+      <button mat-flat-button color="red" (click)="resetFilters()" >Réinitialiser</button>
 
     </div>
   </mat-sidenav>
@@ -112,7 +112,7 @@
       <button *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
         <mat-icon  >filter_list</mat-icon>
       </button>
-      <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+      <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="red" aria-label="Example icon button with a filter list icon">
         <mat-icon  >close</mat-icon>
       </button>
       </div>

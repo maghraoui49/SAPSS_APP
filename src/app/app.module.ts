@@ -46,6 +46,7 @@ import { LoginComponent } from './login/login.component';
 import {MakeBold} from "./application/bold.pipe";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatRadioModule} from "@angular/material/radio";
 
 
 
@@ -99,9 +100,9 @@ import {MatNativeDateModule} from "@angular/material/core";
         MatCardModule,
         ChartsModule,
         FlexLayoutModule,
-      MatDatepickerModule,
-      MatNativeDateModule
-
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatRadioModule
 
 
     ],

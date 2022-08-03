@@ -1,6 +1,6 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
   <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">A</button>
+    <button class="logo" (click)="toggleCollapse()">SA</button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">LA POSTE</div>
     <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
       <i class="fal fa-times close-icon"></i>
@@ -14,7 +14,7 @@
         <span class="sidenav-link-text1" *ngIf="collapsed">{{data.label}}</span>
       </a>
 
-      <span *ngIf="collapsed" (click)="toogleSubMenu=!toogleSubMenu" [ngClass]="data.label=='Données Architecture'? 'fas fa-caret-down sidenav-submenu' : '' "></span>
+<!--      <span *ngIf="collapsed" (click)="toogleSubMenu=!toogleSubMenu" [ngClass]="data.label=='Données Architecture'? 'fas fa-caret-down sidenav-submenu' : '' "></span>-->
 
       <ul  *ngIf="collapsed && data.submenuLevel1 && data.submenuLevel1.length > 0"
           [ngStyle]="{'margin-left': '10px'}">

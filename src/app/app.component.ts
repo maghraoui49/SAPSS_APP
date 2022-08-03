@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {LoginService} from "./sender/login.service";
+import {Router} from "@angular/router";
 
 
 interface SideNavToggle {
@@ -14,8 +16,11 @@ interface SideNavToggle {
 })
 export class AppComponent {
   title = 'SAPPS_APP';
+  isLoginFail! : boolean;
+  constructor(private sender : LoginService) {
 
 
+  }
 
   isSideNavCollapsed = false;
   screenWidth = 0;
@@ -23,5 +28,10 @@ export class AppComponent {
   onToggleSideNav(data: SideNavToggle): void {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
+  }
+
+  ngOnInit(): void {
+    this.isLoginFail=this.sender.getIsLoginFail();
+    console.log(this.isLoginFail)
   }
 }

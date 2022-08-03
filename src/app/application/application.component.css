@@ -36,6 +36,16 @@ th{
 }
 
 
+.mat-flat-button.mat-red {
+  background-color: #fc8c81;
+  color: white;
+}
+
+.mat-mini-fab.mat-red {
+  background-color: #fc8c81;
+  color: white;
+}
+
 
 
 
@@ -78,9 +88,7 @@ mat-sidenav-container {
 }
 /* Font color */
 /* Font color */
-input.mat-input-element {
-  color: white;
-}
+
 
 .res-circle {
   /* (A) PERCENTAGE WIDTH & BORDER RADIUS */

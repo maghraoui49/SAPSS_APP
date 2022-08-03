@@ -7,7 +7,13 @@ import {FormBuilder, Validators} from "@angular/forms";
   styleUrls: ['./create-application.component.css']
 })
 export class CreateApplicationComponent implements OnInit {
+  prenom!: string
+  nom!: string
+  email!: string
+  despon!: string
+  comentaire!: string
 
+  envoyee :boolean = false
   constructor( private _formBuilder: FormBuilder ) { }
 
   ngOnInit(): void {
@@ -21,4 +27,13 @@ export class CreateApplicationComponent implements OnInit {
   });
   isLinear = false;
 
+  envoyer() {
+    this.prenom='';
+    this.nom='';
+    this.email=''
+    this.despon=''
+    this.comentaire=''
+    this.envoyee  = true
+
+  }
 }
