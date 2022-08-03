@@ -1,0 +1,142 @@
+<mat-sidenav-container>
+
+  <mat-sidenav  class="sidnav" position="end" mode="side"  #sidenav>
+
+    <div class="filter">
+      <h2>Filter par critèr(s)</h2>
+
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Domaine</mat-label>
+        <mat-select [(ngModel)]="ngdomaine" [formControl]="domaineFilter">
+          <mat-option *ngFor="let aper of domaine" [value]="aper">{{aper}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Socle Propriétaire</mat-label>
+        <mat-select [(ngModel)]="ngsocle" [formControl]="socleFilter" >
+          <mat-option *ngFor="let aper2 of socle" [value]="aper2">{{aper2}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Responsable Socle</mat-label>
+        <mat-select [(ngModel)]="ngresponsableSocle" [formControl]="responsableSocleFilter">
+          <mat-option *ngFor="let aper2 of responsableSocle" [value]="aper2">{{aper2}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+
+
+
+
+
+      <button mat-flat-button color="red" (click)="resetFilters()" >Réinitialiser</button>
+
+    </div>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+
+
+
+    <h1>Objet Métier</h1>
+    <!--<mat-form-field appearance="fill" class="mx-3">-->
+    <!--  <input matInput placeholder="search" autocomplete="off" >-->
+    <!--</mat-form-field>-->
+
+    <div class="search-box search">
+      <mat-form-field class="example-form-field" appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <mat-label>Search</mat-label>
+        <input matInput type="text" [ngModel]="globalFilter" (ngModelChange)="applyFilter($event)" >
+        <button  matSuffix mat-icon-button aria-label="Clear" >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <h4 id="h4">Nombre d'enregistrement : {{dataSource.data.length}}</h4>
+<!--      <button  mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon">-->
+<!--        <mat-icon >description</mat-icon>-->
+<!--      </button>-->
+
+      <div>
+        <button style="margin-right: 15px;" (click)="exportTable()"  mat-mini-fab color="green" aria-label="Example icon button with a filter list icon">
+          <mat-icon color="white" >description</mat-icon>
+        </button>
+
+        <button *ngIf="!sidenav.opened" (click)="sidenav.toggle()"  mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+          <mat-icon  >filter_list</mat-icon>
+        </button>
+        <button *ngIf="sidenav.opened"  (click)="sidenav.toggle() " mat-mini-fab color="red" aria-label="Example icon button with a filter list icon">
+          <mat-icon  >close</mat-icon>
+        </button>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="mat-elevation-z8 table-mat">
+      <mat-progress-bar *ngIf="dataSource.data.length == 0" mode="indeterminate"></mat-progress-bar>
+      <table id="ExampleMaterialTable" mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Identifiant </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="domaine">
+          <th mat-header-cell *matHeaderCellDef> Domaine </th>
+          <td mat-cell *matCellDef="let element"> {{element.domaine}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container  matColumnDef="socle">
+          <th mat-header-cell *matHeaderCellDef> Socle Propriétaire </th>
+          <td mat-cell *matCellDef="let element"> {{element.socle}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="responsableSocle">
+          <th mat-header-cell *matHeaderCellDef> Responsable Socle </th>
+          <td mat-cell *matCellDef="let element"> {{element.responsableSocle}} </td>
+        </ng-container>
+
+        <tr class="table-header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="header" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator  #paginator
+                      [pageSize]="8"
+                      [pageSizeOptions]="[8, 10, 20, 40]"
+                      showFirstLastButtons
+                      aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

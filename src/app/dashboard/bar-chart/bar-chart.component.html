@@ -1,0 +1,24 @@
+
+<div>
+  <mat-form-field>
+    <mat-label>Selectionner</mat-label>
+    <mat-select [formControl]="formSelect">
+      <mat-option *ngFor="let item of listSelect" [value]="item">
+        {{ item }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <canvas
+    baseChart
+    width="auto"
+    height="auto"
+    width="auto"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    [options]="lineChartOptions"
+    [plugins]="lineChartPlugins"
+  ></canvas>
+</div>

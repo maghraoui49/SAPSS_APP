@@ -1,0 +1,41 @@
+
+
+<div class="form-wraper">
+  <div class="form-container card">
+    <div class="form-header title ">
+      <div class="logo-image">
+        <img src="assets/images/laposte.png" class="img-fluid" style="width: 46px; height: 46px; text-align: center">
+      </div>
+      <span>Portail SOURCE APPLICATION</span>
+
+    </div>
+
+    <div class="form-body">
+
+
+      <mat-form-field class="justifier" appearance="outline">
+        <mat-label>Identifiant</mat-label>
+        <input [(ngModel)]="username" matInput placeholder="Identifiant" text="email" class="form-input">
+      </mat-form-field>
+      <mat-form-field class="justifier" appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input [(ngModel)]="password" matInput type="password" placeholder="Mot de passe" text="password" class="form-input">
+      </mat-form-field>
+    </div>
+
+    <div class="form-footer">
+      <button (click)="checkauth()" mat-raised-button class="btn custom-btn">
+        <mat-icon>input</mat-icon> Se connecter
+      </button>
+
+<!--      <button mat-raised-button class="btn">-->
+<!--        <img src="./../../assets/search.svg" alt="" class="google-icon"> Login With Google-->
+<!--      </button>-->
+    </div>
+
+    <div style="display: flex; justify-content: center; color: #f65555" *ngIf=" isLoginFail" class="alert alert-danger mt-3">Le nom d'utilisateur ou le mot de passe est incorrect </div>
+<!--    <div class="additional-link">-->
+<!--      <a routerLink="/signup">No Account? <strong>Create one here</strong></a>-->
+<!--    </div>-->
+  </div>
+</div>
